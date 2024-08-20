@@ -147,9 +147,28 @@ internal class Program
         //Console.WriteLine(porco.Nome + " faz: ");
         //porco.emitirSom();
 
-        Mago mago = new Mago();
-        mago.Nome = "Dumbledore";
-        Console.WriteLine(mago.Nome + " faz: ");
-        mago.atacar();
+        Mago merlin = new Mago();
+
+        merlin.Nome = "Dumbledore";
+        merlin.Vida = 100;
+        merlin.Inteligencia = 87;
+        merlin.Agilidade = 55;
+        merlin.Forca = 62;
+        merlin.Nivel = 1;
+
+        Elfo elfo = new Elfo();
+        elfo.Nome = "Hobbit";
+        elfo.Vida = 100;
+        elfo.Inteligencia = 83;
+        elfo.Agilidade = 60;
+        elfo.Forca = 90;
+        elfo.Nivel = 1;
+
+        merlin.apresentarSe();
+        elfo.apresentarSe();
+
+        merlin.batalhar(elfo);
+
+
     }
 }

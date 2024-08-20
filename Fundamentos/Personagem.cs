@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,13 +24,49 @@ namespace Fundamentos
         public virtual int atacar()
         {
             int pontosAtaque = 0;
-
-            pontosAtaque = (this.Inteligencia + this.Forca + this.Agilidade + this.Nivel + this.Vida) / 5;
+            pontosAtaque = (this.Inteligencia + (this.Forca * 2) + this.Agilidade + this.Nivel + this.Vida) / 6;
             return pontosAtaque;
         }
-        public virtual void defender() { }
+        public virtual int defender()
+        {
+            int pontosDefesa = 0;
+            pontosDefesa = (this.Inteligencia + this.Forca + (this.Agilidade * 2) + this.Nivel + this.Vida) / 6;
+            return pontosDefesa;
+        }
+        public virtual void batalhar(Personagem p)
+        {
+            int valorAtaque = this.atacar();
+            int valorDefesaInimigo = p.defender();
+            int danoDeVida = valorAtaque - valorDefesaInimigo;
+            if (danoDeVida <= 0)
+            {
+                danoDeVida = 1;
+            }
+            p.Vida = p.Vida - danoDeVida;
+            Console.WriteLine("Houve um dano na vida do Inimigo em " + danoDeVida);
+            Console.WriteLine("O nível de vida do Inimigo atualmente corresponde a " + p.Vida);
 
-        public abstract void batalha() { }
+            int valorAtaqueInimigo = p.atacar();
+            int valorDefesa = this.defender();
+            int danoDeVida2 = valorAtaqueInimigo - valorDefesa;
+            if (danoDeVida2 <= 0)
+            {
+                danoDeVida2 = 1;
+            }
+            this.Vida = this.Vida - danoDeVida2;
+            Console.WriteLine("Houve um dano na vida do Atacante em " + danoDeVida);
+            Console.WriteLine("O nível de vida do Atacante atualmente corresponde a " + p.Vida);
+        }
+        public virtual int evoluir()
+        {
+            Nivel++;
+            Forca += 5;
+            Agilidade += 7;
+            Inteligencia += 4;
+            Vida += 15;
+            Console.WriteLine($"{Nome} evoluiu para o nível {Nivel}! (Elfo)");
+            Console.WriteLine($"Atributos: Força = {Forca}, Agilidade = {Agilidade}, Inteligência = {Inteligencia}, Vida = {Vida}");
+        }
 
     }
 }

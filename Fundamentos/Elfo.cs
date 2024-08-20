@@ -8,9 +8,11 @@ namespace Fundamentos
 {
     public class Elfo : Personagem
     {
-        public string Apresentar { get; set; }
-        public int Evoluir { get; set; }
-        public int Atacar { get; set; }
-        public int Defender { get; set; }
+        public override void apresentarSe()
+        {
+            Console.WriteLine("Olá, eu sou o Elfo: " + this.Nome + " eu possuo atualmente o nível: " + this.Nivel + " ,tenho uma força equivalente a: " + this.Forca + " ,minha agilidade corresponde a: " + this.Agilidade + " ,e a inteligencia é de: " + this.Inteligencia + " por fim, a minha vida tem um total de: " + this.Vida);
+            Console.WriteLine();
+            Console.WriteLine("==============================================================================");
+        }
     }
 }
