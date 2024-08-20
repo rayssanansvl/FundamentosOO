@@ -15,9 +15,5 @@ namespace Fundamentos
             Console.WriteLine();
             Console.WriteLine("==============================================================================");
         }
-        public override void evoluir()
-        {
-            Console.WriteLine("O personagem ")
-        }
     }
 }

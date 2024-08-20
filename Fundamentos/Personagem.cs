@@ -35,37 +35,44 @@ namespace Fundamentos
         }
         public virtual void batalhar(Personagem p)
         {
-            int valorAtaque = this.atacar();
-            int valorDefesaInimigo = p.defender();
-            int danoDeVida = valorAtaque - valorDefesaInimigo;
-            if (danoDeVida <= 0)
+            bool vencedor = false;
+            while (vencedor == false)
             {
-                danoDeVida = 1;
-            }
-            p.Vida = p.Vida - danoDeVida;
-            Console.WriteLine("Houve um dano na vida do Inimigo em " + danoDeVida);
-            Console.WriteLine("O nível de vida do Inimigo atualmente corresponde a " + p.Vida);
+                int valorAtaque = this.atacar();
+                int valorDefesaInimigo = p.defender();
+                int danoDeVida = valorAtaque - valorDefesaInimigo;
+                if (danoDeVida <= 0)
+                {
+                    danoDeVida = 1;
+                }
+                p.Vida = p.Vida - danoDeVida;
+                Console.WriteLine("Houve um dano na vida do Inimigo em " + danoDeVida);
+                Console.WriteLine("O nível de vida do Inimigo atualmente corresponde a " + p.Vida);
 
-            int valorAtaqueInimigo = p.atacar();
-            int valorDefesa = this.defender();
-            int danoDeVida2 = valorAtaqueInimigo - valorDefesa;
-            if (danoDeVida2 <= 0)
-            {
-                danoDeVida2 = 1;
+                int valorAtaqueInimigo = p.atacar();
+                int valorDefesa = this.defender();
+                int danoDeVida2 = valorAtaqueInimigo - valorDefesa;
+                if (danoDeVida2 <= 0)
+                {
+                    danoDeVida2 = 1;
+                }
+                this.Vida = this.Vida - danoDeVida2;
+                Console.WriteLine("Houve um dano na vida do Atacante em " + danoDeVida);
+                Console.WriteLine("O nível de vida do Atacante atualmente corresponde a " + this.Vida);
+
+                Console.WriteLine();
+                Console.WriteLine("==============================================================================");
+                if (this.Vida <= 0)
+                {
+                    Console.WriteLine("O personagem " + p.Nome + " derrotou o oponente!");
+                    vencedor = true;
+                }
+                if (p.Vida <= 0)
+                {
+                    Console.WriteLine("O personagem " + this.Nome + " derrotou o oponente!");
+                    vencedor = true;
+                }
             }
-            this.Vida = this.Vida - danoDeVida2;
-            Console.WriteLine("Houve um dano na vida do Atacante em " + danoDeVida);
-            Console.WriteLine("O nível de vida do Atacante atualmente corresponde a " + p.Vida);
-        }
-        public virtual int evoluir()
-        {
-            Nivel++;
-            Forca += 5;
-            Agilidade += 7;
-            Inteligencia += 4;
-            Vida += 15;
-            Console.WriteLine($"{Nome} evoluiu para o nível {Nivel}! (Elfo)");
-            Console.WriteLine($"Atributos: Força = {Forca}, Agilidade = {Agilidade}, Inteligência = {Inteligencia}, Vida = {Vida}");
         }
 
     }

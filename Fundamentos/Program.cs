@@ -168,7 +168,5 @@ internal class Program
         elfo.apresentarSe();
 
         merlin.batalhar(elfo);
-
-
     }
 }
