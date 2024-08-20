@@ -126,25 +126,30 @@ internal class Program
         //// Imprimindo a informação na tela
         //Console.WriteLine("O animal " + animal1.Especie + " emitiu um som.");
 
-        Gato gato = new Gato();
-        gato.Nome = "Frajola";
-        Console.WriteLine(gato.Nome + " faz: ");
-        gato.emitirSom();
+        //Gato gato = new Gato();
+        //gato.Nome = "Frajola";
+        //Console.WriteLine(gato.Nome + " faz: ");
+        //gato.emitirSom();
 
-        Console.WriteLine("==============================================");
-        Console.WriteLine();
+        //Console.WriteLine("==============================================");
+        //Console.WriteLine();
 
-        Galinha galinha = new Galinha();
-        galinha.Nome = "Lilica";
-        Console.WriteLine(galinha.Nome + " faz: ");
-        galinha.emitirSom();
+        //Galinha galinha = new Galinha();
+        //galinha.Nome = "Lilica";
+        //Console.WriteLine(galinha.Nome + " faz: ");
+        //galinha.emitirSom();
 
-        Console.WriteLine("==============================================");
-        Console.WriteLine();
+        //Console.WriteLine("==============================================");
+        //Console.WriteLine();
 
-        Porco porco = new Porco();
-        porco.Nome = "Peppa";
-        Console.WriteLine(porco.Nome + " faz: ");
-        porco.emitirSom();
+        //Porco porco = new Porco();
+        //porco.Nome = "Peppa";
+        //Console.WriteLine(porco.Nome + " faz: ");
+        //porco.emitirSom();
+
+        Mago mago = new Mago();
+        mago.Nome = "Dumbledore";
+        Console.WriteLine(mago.Nome + " faz: ");
+        mago.atacar();
     }
 }
