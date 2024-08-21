@@ -20,7 +20,15 @@ namespace Fundamentos
         // Metodos
 
         public virtual void apresentarSe() { }
-        public virtual void evoluir() { }
+        public virtual void evoluir()
+        {
+            this.Nivel += 2;
+            this.Forca *= 2;
+            this.Inteligencia *= 2;
+            this.Agilidade *= 2;
+            Console.WriteLine();
+            Console.WriteLine("O jogador " + this.Nome + " após a batalha evoluiu para o nível " + this.Nivel + ". Seus novos valores depois da conquista são: \nAgilidade: " + this.Agilidade + "\nInteligência: " + this.Inteligencia + "\nForça : " + this.Forca);
+        }
         public virtual int atacar()
         {
             int pontosAtaque = 0;
@@ -66,11 +74,13 @@ namespace Fundamentos
                 {
                     Console.WriteLine("O personagem " + p.Nome + " derrotou o oponente!");
                     vencedor = true;
+                    p.evoluir();
                 }
                 if (p.Vida <= 0)
                 {
                     Console.WriteLine("O personagem " + this.Nome + " derrotou o oponente!");
                     vencedor = true;
+                    this.evoluir();
                 }
             }
         }
